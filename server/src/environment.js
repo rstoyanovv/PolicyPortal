@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config({path: '../.env' });
+dotenv.config({ path: '../server/.env' });
 
 export const jwtConfig = {
     secret: process.env.JWT_SECRET,
@@ -12,4 +12,8 @@ export const dbConfig = {
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
+};
+
+export const passwordConfig = {
+    saltRounds: 10,
 };
