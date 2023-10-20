@@ -6,8 +6,7 @@ class UserService {
     }
 
     createNewUser = async( username, email, password ) => {
-        const hashPassword = this.passwordHashingService.hashPassword(password);
-        //console.log(hashPassword);
+        const hashPassword = await this.passwordHashingService.hashPassword(password);
         await this.userRepository.insertNewUserIntoDatabase(username, email, hashPassword);
     }
 }
