@@ -9,6 +9,18 @@ class UserService {
         const hashPassword = await this.passwordHashingService.hashPassword(password);
         await this.userRepository.insertNewUserIntoDatabase(username, email, hashPassword);
     }
+
+    login = async( email, password ) => {
+        const user = await this.userRepository.fetchUser(email);
+        const isPasswordCorrect = await this.passwordHashingService.comparePassword(password, user.password);
+        
+        if(!isPasswordCorrect) {
+            throw new Error("Invalid password!");
+        }
+        
+        const token = this.jwtService.generateToken({ email: user.email });
+        return token;	
+    }
 }
 
 export default UserService;

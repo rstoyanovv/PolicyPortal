@@ -6,12 +6,12 @@ class PasswordHashingService {
         this.saltRounds = passwordConfig.saltRounds;
     }
 
-    async hashPassword( password ) {
-        try {
-            return await bcrypt.hash(password, this.saltRounds);
-        } catch (err) {
-            console.error(err);
-        }
+    async hashPassword(password) {
+        return bcrypt.hash(password, this.saltRounds);
+    }
+    
+    async comparePassword(password, hash) {
+        return bcrypt.compare(password, hash);
     }
 }
 
