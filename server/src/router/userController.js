@@ -5,11 +5,11 @@ class UserController {
     constructor({ userService }) {
         this.userService = userService;
         this.router = express.Router();
-        this.router.post('/create-user', this.createNewUser);
+        this.router.post('/registration', this.registration);
         this.router.post('/login-user', this.login);
     }
 
-    createNewUser = async (req, res) => {
+    registration = async (req, res) => {
         try {
             const { username, email, password } = req.body;
             if (!validateEmail(email)) {
@@ -18,8 +18,6 @@ class UserController {
             await this.userService.createNewUser(username, email, password);
             res.status(201).json({ message: "A new user was created successfully!" });
         } catch (err) {
-            //delete this console.log
-            console.log(err);
             res.status(500).json({ message: err.message });
         }
     };
@@ -30,7 +28,6 @@ class UserController {
             const token = await this.userService.login(email, password);
             res.status(200).send({ token });
         } catch (err) {
-            console.log(err);
             res.status(500).json({ message: err.message });
         }
     }
