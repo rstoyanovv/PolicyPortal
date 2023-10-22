@@ -21,6 +21,14 @@ class UserService {
         const token = this.jwtService.generateToken({ email: user.email });
         return token;	
     }
+
+    createArticle = async(id_of_user, title, article) => {
+        const result = await this.userRepository.createArticle(id_of_user, title, article);
+
+        if(result) {
+            //...
+        }
+    } 
 }
 
 export default UserService;

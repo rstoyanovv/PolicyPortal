@@ -1,4 +1,4 @@
-import { dbConfig } from "./environment.js";
+import { dbConfig } from "../environment.js";
 import pkg from 'pg';
 const { Pool } = pkg;
 

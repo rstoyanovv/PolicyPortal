@@ -7,6 +7,7 @@ class UserController {
         this.router = express.Router();
         this.router.post('/registration', this.registration);
         this.router.post('/login-user', this.login);
+        this.router.post('/create-article', this.createArticle);
     }
 
     registration = async (req, res) => {
@@ -27,6 +28,16 @@ class UserController {
             const { email, password } = req.body;
             const token = await this.userService.login(email, password);
             res.status(200).send({ token });
+        } catch (err) {
+            res.status(500).json({ message: err.message });
+        }
+    }
+
+    createArticle = async (req, res) => {
+        try {
+            const { id_of_user, title, article } = req.body;
+            await this.userService.createArticle(id_of_user, title, article);
+            res.status(201).json({ message: "New article successfully created!" });
         } catch (err) {
             res.status(500).json({ message: err.message });
         }

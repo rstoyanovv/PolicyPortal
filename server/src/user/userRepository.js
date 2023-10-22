@@ -23,6 +23,10 @@ class UserRepository {
             password: result.rows[0].password
         });
     }
+
+    createArticle = async ( id_of_user, title, article ) => { 
+        await this.dbPool.query('')
+    }
 }
 
 export default UserRepository;
