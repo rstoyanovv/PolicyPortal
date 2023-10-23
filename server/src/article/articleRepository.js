@@ -22,6 +22,23 @@ class ArticleRepository {
         await this.dbPool.query('DELETE FROM policyportal.comments WHERE id = $1', 
             [id_of_comment]);
     }
+
+    fetchArticles = async () => {
+        const result = await this.dbPool.query(
+            `SELECT policyportal.users.username, policyportal.articles.title, 
+                policyportal.articles.article, policyportal.articles.created_at 
+                FROM policyportal.articles
+                INNER JOIN policyportal.users 
+                ON policyportal.articles.upload_by = policyportal.users.id
+                WHERE status = 'APPROVED'
+                ORDER BY created_at DESC`);
+        
+        if(result.rows.length > 0) {
+            return result.rows;
+        } else{
+            return "No articles";
+        }
+    }
 }
 
 export default ArticleRepository;

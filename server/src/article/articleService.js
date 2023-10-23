@@ -18,6 +18,10 @@ class ArticleService {
     deleteComment = async (id_of_comment) => {
         await this.articleRepository.deleteComment(id_of_comment);
     }
+
+    fetchArticles = async () => {
+        return await this.articleRepository.fetchArticles();
+    }
 }
 
 export default ArticleService;

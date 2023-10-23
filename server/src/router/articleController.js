@@ -8,6 +8,7 @@ class ArticleController {
         this.router.post('/comment', this.comment);
         this.router.delete('/delete-article', this.deleteArticle);
         this.router.delete('/delete-comment', this.deleteComment);
+        this.router.get('/articles', this.fetchArticles);
     }
 
     createArticle = async (req, res) => {
@@ -46,6 +47,15 @@ class ArticleController {
             const { id_of_comment } = req.body;
             await this.articleService.deleteComment( id_of_comment );
             res.status(200).json({ message: "The comment has been successfully deleted." });
+        } catch (err) {
+            res.status(500).json({ message: err.message });
+        }
+    }
+
+    fetchArticles = async (req, res) => { 
+        try {
+            const result = await this.articleService.fetchArticles();
+            res.status(200).json( result );
         } catch (err) {
             res.status(500).json({ message: err.message });
         }
