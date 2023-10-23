@@ -16,6 +16,10 @@ class AdminService {
         const token = this.jwtService.generateToken({ email: admin.email });
         return token;	
     }
+
+    approve = async( articleId, status ) => {
+        await this.adminRepository.updateStatusOfArticle(articleId, status);
+    }
 }
 
 export default AdminService;

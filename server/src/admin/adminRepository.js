@@ -18,6 +18,11 @@ class AdminRepository {
             password: result.rows[0].password
         });
     }
+
+    updateStatusOfArticle = async ( articleId, status) => {
+        await this.dbPool.query('UPDATE policyportal.articles SET status = $1 WHERE id = $2', 
+        [status, articleId]);
+    }
 }
 
 export default AdminRepository;
