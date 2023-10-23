@@ -1,0 +1,1 @@
+INSERT INTO policyportal.admins (username, email, password) VALUES ('admin1', 'asd@asd.com', '$2b$10$9aO0TtcHi2yYe.qyc9tdFO4t0BbEfn1mB/JfeRGwbxzmu/mKcq.ky')

@@ -26,3 +26,11 @@ CREATE TABLE policyportal.comments
     CONSTRAINT comments_upload_by_fk FOREIGN KEY (upload_by) REFERENCES policyportal.users(id),
     CONSTRAINT comments_for_article_fk FOREIGN KEY (for_article) REFERENCES policyportal.articles(id)
 );
+
+CREATE TABLE policyportal.admins
+(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL
+);
