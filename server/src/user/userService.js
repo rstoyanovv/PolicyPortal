@@ -23,11 +23,7 @@ class UserService {
     }
 
     createArticle = async(id_of_user, title, article) => {
-        const result = await this.userRepository.createArticle(id_of_user, title, article);
-
-        if(result) {
-            //...
-        }
+        await this.userRepository.createArticle(id_of_user, title, article);
     } 
 }
 

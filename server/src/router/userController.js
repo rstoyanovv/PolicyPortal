@@ -6,7 +6,7 @@ class UserController {
         this.userService = userService;
         this.router = express.Router();
         this.router.post('/registration', this.registration);
-        this.router.post('/login-user', this.login);
+        this.router.post('/login', this.login);
         this.router.post('/create-article', this.createArticle);
     }
 
