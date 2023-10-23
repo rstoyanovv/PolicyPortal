@@ -20,10 +20,6 @@ class AdminService {
     approve = async( articleId, status ) => {
         await this.adminRepository.updateStatusOfArticle(articleId, status);
     }
-
-    deleteArticle = async (articleId) => {
-        await this.adminRepository.deleteArticle(articleId);
-    }
 }
 
 export default AdminService;

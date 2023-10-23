@@ -24,11 +24,6 @@ class AdminRepository {
         await this.dbPool.query('UPDATE policyportal.articles SET status = $1 WHERE id = $2',
             [status, articleId]);
     }
-
-    deleteArticle = async (articleId) => {
-        await this.dbPool.query('DELETE FROM policyportal.articles WHERE id = $1', 
-            [articleId]);
-    }
 }
 
 export default AdminRepository;

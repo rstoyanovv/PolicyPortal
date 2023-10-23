@@ -6,7 +6,6 @@ class AdminController {
         this.router = express.Router();
         this.router.post('/login', this.login);
         this.router.post('/set-article-status', this.approve);
-        this.router.delete('/delete-article', this.deleteArticle);
     }
 
     login = async (req, res) => {
@@ -26,17 +25,6 @@ class AdminController {
             await this.adminService.approve( id_of_article, status );
             res.status(200).json({ message: "The article is after admin control." });
         } catch (err) {
-            res.status(500).json({ message: err.message });
-        }
-    }
-
-    deleteArticle = async (req, res) => {
-        try {
-            const { id_of_article } = req.body;
-            await this.adminService.deleteArticle( id_of_article );
-            res.status(200).json({ message: "The article has been successfully deleted." });
-        } catch (err) {
-            console.error(err);
             res.status(500).json({ message: err.message });
         }
     }
