@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 
 //Routes:
 const userRouter = container.resolve('userController');
+const articleRouter = container.resolve('articleController');
 
 app.use("/api", userRouter.router);
+app.use("/api", articleRouter.router);
 
 app.listen(port, () => {
     console.log('App listening on port ' + port);

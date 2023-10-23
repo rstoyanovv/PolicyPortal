@@ -23,11 +23,6 @@ class UserRepository {
             password: result.rows[0].password
         });
     }
-
-    createArticle = async ( id_of_user, title, article ) => { 
-        await this.dbPool.query('INSERT INTO policyportal.articles (upload_by, title, article, status) VALUES ($1, $2, $3, $4)',
-        [id_of_user, title, article, 'WAITING FOR APPROVAL']);
-    }
 }
 
 export default UserRepository;
