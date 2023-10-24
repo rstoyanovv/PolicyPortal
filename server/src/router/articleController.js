@@ -9,6 +9,7 @@ class ArticleController {
         this.router.delete('/delete-article', this.deleteArticle);
         this.router.delete('/delete-comment', this.deleteComment);
         this.router.get('/articles', this.fetchArticles);
+        this.router.get('/articles_by_user/:userId', this.fetchArticlesByUserId);
     }
 
     createArticle = async (req, res) => {
@@ -55,8 +56,19 @@ class ArticleController {
     fetchArticles = async (req, res) => { 
         try {
             const result = await this.articleService.fetchArticles();
-            res.status(200).json( result );
+            res.status(200).json({ articles: result });
         } catch (err) {
+            res.status(500).json({ message: err.message });
+        }
+    }
+
+    fetchArticlesByUserId = async (req, res) => {
+        try {
+            const user = req.params.userId;
+            const result = await this.articleService.fetchArticlesByUserId(user);
+            res.status(200).json({ result });
+        } catch (err) {
+            console.log(err);
             res.status(500).json({ message: err.message });
         }
     }

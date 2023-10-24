@@ -22,6 +22,10 @@ class ArticleService {
     fetchArticles = async () => {
         return await this.articleRepository.fetchArticles();
     }
+
+    fetchArticlesByUserId = async (id_of_user) => {
+        return await this.articleRepository.fetchArticlesByUserId(id_of_user);
+    }
 }
 
 export default ArticleService;
