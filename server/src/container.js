@@ -12,6 +12,7 @@ import ArticleRepository from './article/articleRepository.js';
 import AdminController from './router/admin/adminController.js';
 import AdminService from './admin/adminService.js';
 import AdminRepository from './admin/adminRepository.js';
+import { auth } from './middleware/authentication.js';
 
 const container = createContainer();
 
@@ -27,7 +28,8 @@ container.register({
     articleRepository: asClass(ArticleRepository).singleton(),
     adminController: asClass(AdminController).singleton(),
     adminService: asClass(AdminService).singleton(),
-    adminRepository: asClass(AdminRepository).singleton()
+    adminRepository: asClass(AdminRepository).singleton(),
+    auth: asValue(auth),
 });
 
 export default container;

@@ -12,13 +12,24 @@ class UserController {
     registration = async (req, res) => {
         try {
             const { username, email, password } = req.body;
+
             if (!validateEmail(email)) {
                 console.log('Invalid email');
             }
             await this.userService.createNewUser(username, email, password);
-            res.status(201).json({ message: "A new user was created successfully!" });
+            res.status(201).json({
+                status: 'success',
+                message: "A new user was created successfully!",
+                data: {
+                    username: username,
+                    email: email,
+                }
+            });
         } catch (err) {
-            res.status(500).json({ message: err.message });
+            res.status(500).json({
+                status: 'failed',
+                message: err.message
+            });
         }
     };
 
@@ -26,9 +37,17 @@ class UserController {
         try {
             const { email, password } = req.body;
             const token = await this.userService.login(email, password);
-            res.status(200).send({ token });
+            res.status(200).json({
+                status: 'success',
+                data: {
+                    token: token,
+                }
+            });
         } catch (err) {
-            res.status(500).json({ message: err.message });
+            res.status(500).json({
+                status: 'failed',
+                message: err.message
+            });
         }
     }
 }

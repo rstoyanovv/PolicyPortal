@@ -50,7 +50,11 @@ class ArticleRepository {
                 WHERE policyportal.users.id = $1 AND policyportal.articles.status = 'APPROVED'
                 ORDER BY policyportal.articles.created_at DESC`, [id_of_user]);
 
+        if (result.rows.length > 0) {
             return result.rows;
+        } else {
+            return "This user has no articles";
+        }
     }
 }
 

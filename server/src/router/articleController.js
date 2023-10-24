@@ -1,11 +1,11 @@
 import express from 'express';
 
 class ArticleController {
-    constructor({ articleService }) {
+    constructor({ articleService, auth }) {
         this.articleService = articleService;
         this.router = express.Router();
-        this.router.post('/create-article', this.createArticle);
-        this.router.post('/comment', this.comment);
+        this.router.post('/create-article', auth, this.createArticle);
+        this.router.post('/comment', auth, this.comment);
         this.router.delete('/delete-article', this.deleteArticle);
         this.router.delete('/delete-comment', this.deleteComment);
         this.router.get('/articles', this.fetchArticles);
