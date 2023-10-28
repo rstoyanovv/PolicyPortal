@@ -1,7 +1,7 @@
 export default function WelcomeScreen() {
     return (
         <>
-            <h1>ANTON FOR MAYOR!</h1>
+            <h1>GERB!</h1>
         </>
     );
 }
