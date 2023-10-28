@@ -1,16 +1,18 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { WelcomePage } from './components/WelcomePage';
+import WelcomeScreen from './components/WelcomeScreen';
+import NavigationBar from './components/NavigationBar';
 
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
-        <Route path='/' element={< WelcomePage />}></Route>
-      </Routes>
-    </Router>
+      <NavigationBar />
+      <Router>
+        <Routes>
+          <Route path='/' element={< WelcomeScreen />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }
