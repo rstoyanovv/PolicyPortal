@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WelcomeScreen from './screens/WelcomeScreen';
 import NotFound from './screens/NotFound';
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='*' element={< NotFound />}></Route>
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
