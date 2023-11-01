@@ -4,7 +4,7 @@ import axios from "axios";
 const ArticleContext = createContext();
 
 export const ArticleProvider = () => {
-    const [articles, setArticles] = useContext([]);
+    /*const [articles, setArticles] = useContext([]);
 
     useEffect(() => {
         const fetchArticles = () => {
@@ -17,9 +17,18 @@ export const ArticleProvider = () => {
             }
         };
         fetchArticles();
-    }, []);
+    }, []);*/
 
     //Console test
     console.log(articles);
 
-}
+    return (
+        <ArticleContext.Provider value={{ articles, setArticles, fetchArticles}}>
+            {children}
+        </ArticleContext.Provider>
+    );
+};
+
+export const articlesData = () => {
+    return useContext(ArticleContext);
+};
