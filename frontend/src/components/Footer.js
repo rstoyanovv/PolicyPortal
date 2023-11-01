@@ -11,18 +11,18 @@ export default function Footer() {
                     </a>
                     <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                         <li>
-                            <a href="/us" class="mr-4 hover:underline md:mr-6 ">За нас</a>
+                            <a href="/us" class="mr-4 hover:underline md:mr-6 ">About</a>
                         </li>
                         <li>
-                            <a href="/personal" class="mr-4 hover:underline md:mr-6">Лични данни</a>
+                            <a href="/personal" class="mr-4 hover:underline md:mr-6">Personal data</a>
                         </li>
                         <li>
-                            <a href="/contact" class="hover:underline">Контакт</a>
+                            <a href="/contact" class="hover:underline">Contact</a>
                         </li>
                     </ul>
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Policy Portal</a>.  Всички права са запазени. </span>
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Policy Portal</a>.  All rights reserved. </span>
             </div>
         </footer>
     );
