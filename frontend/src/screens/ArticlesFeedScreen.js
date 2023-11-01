@@ -7,9 +7,9 @@ export default function ArticlesFeedScreen() {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        const fetchArticles = () => {
+        const fetchArticles = async () => {
             try {
-                const result = axios.get(`/api/articles`);
+                const result = await axios.get(`/api/articles`);
                 const articlesData = result.data;
                 setArticles(articlesData);
             } catch (err) {
@@ -19,17 +19,11 @@ export default function ArticlesFeedScreen() {
         fetchArticles();
     }, []);
 
-    console.log("Articles: ");
     console.log(articles);
 
     return (
         <div>
             <h1>All of the articles</h1>
-            <ul >
-                {articles.map((article) => (
-                    <li key={article.id}/>
-                ))}
-            </ul>
         </div>
     );
 }
