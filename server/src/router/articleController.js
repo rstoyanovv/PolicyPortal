@@ -56,7 +56,7 @@ class ArticleController {
     fetchArticles = async (req, res) => { 
         try {
             const result = await this.articleService.fetchArticles();
-            res.status(200).json({ articles: result });
+            res.status(200).json({ result });
         } catch (err) {
             res.status(500).json({ message: err.message });
         }
