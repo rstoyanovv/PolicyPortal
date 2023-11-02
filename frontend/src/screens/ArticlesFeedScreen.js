@@ -3,6 +3,8 @@ import SingleArticleInFeedScreen from "./SingleArticleInFeedScreen";
 import { useEffect } from "react";
 import axios from "axios";
 
+import '../styles/articleFeedStyle.css';
+
 export default function ArticlesFeedScreen() {
     const [articles, setArticles] = useState([]);
 
@@ -21,14 +23,15 @@ export default function ArticlesFeedScreen() {
 
     return (
         <div>
-            <h1>All of the articles</h1>
-            <div>
-                { articles.map ((article, index) => (
+            <h1 className="self-center text-8x3 whitespace-nowrap font-bold heading-feed"> Last articles </h1>
+            <div className = "mb-24 articles-feed-container">
+                { articles.map((article, index) => (
                     < SingleArticleInFeedScreen 
                         key = {index}
                         article = {article}
+                        index = {index}
                     />
-                ))};
+                ))}
             </div>
         </div>
     );

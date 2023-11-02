@@ -1,0 +1,15 @@
+.heading-feed {
+    color: #1c2642;
+    font-size: 2.7rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    margin-left: 18rem;
+}
+
+.single-article-preview {
+    margin: 2rem 0;
+}
+
+.articles-feed-container {
+    margin-left: 12rem;
+}

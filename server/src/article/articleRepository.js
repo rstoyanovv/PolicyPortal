@@ -26,7 +26,8 @@ class ArticleRepository {
     fetchArticles = async () => {
         const result = await this.dbPool.query(
             `SELECT policyportal.users.username, policyportal.articles.title, 
-                policyportal.articles.article, policyportal.articles.created_at 
+                policyportal.articles.article, policyportal.articles.created_at,
+                policyportal.articles.id 
                 FROM policyportal.articles
                 INNER JOIN policyportal.users 
                 ON policyportal.articles.upload_by = policyportal.users.id
