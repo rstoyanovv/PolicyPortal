@@ -23,6 +23,10 @@ class ArticleService {
         return await this.articleRepository.fetchArticles();
     }
 
+    fetchSingleArticleById = async (article_id) => {
+        return await this.articleRepository.fetchSingleArticleById(article_id);
+    }
+
     fetchArticlesByUserId = async (id_of_user) => {
         return await this.articleRepository.fetchArticlesByUserId(id_of_user);
     }

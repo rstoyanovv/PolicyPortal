@@ -25,14 +25,17 @@ class ArticleRepository {
 
     fetchArticles = async () => {
         const result = await this.dbPool.query(
-            `SELECT policyportal.users.username, policyportal.articles.title, 
-                policyportal.articles.article, policyportal.articles.created_at,
+            `SELECT 
+                policyportal.users.username, 
+                policyportal.articles.title, 
+                policyportal.articles.article, 
+                policyportal.articles.created_at,
                 policyportal.articles.id 
-                FROM policyportal.articles
-                INNER JOIN policyportal.users 
-                ON policyportal.articles.upload_by = policyportal.users.id
-                WHERE status = 'APPROVED'
-                ORDER BY created_at DESC`);
+            FROM policyportal.articles
+            INNER JOIN policyportal.users 
+            ON policyportal.articles.upload_by = policyportal.users.id
+            WHERE status = 'APPROVED'
+            ORDER BY created_at DESC`);
 
         if (result.rows.length > 0) {
             return result.rows;
@@ -41,15 +44,42 @@ class ArticleRepository {
         }
     }
 
+    fetchSingleArticleById = async (article_id) => {
+        const article = await this.dbPool.query(
+            `SELECT 
+                policyportal.users.username,
+                policyportal.articles.title, 
+                policyportal.articles.article, 
+                policyportal.articles.created_at,
+                policyportal.articles.id 
+            FROM policyportal.articles
+            INNER JOIN policyportal.users 
+            ON policyportal.articles.upload_by = policyportal.users.id
+            WHERE policyportal.articles.id = $1`,
+            [article_id]
+        );
+
+        console.log(article.rows);
+
+        if (article.rows.length > 0) {
+            return article.rows;
+        } else {
+            return "No articles";
+        }
+    }
+
     fetchArticlesByUserId = async (id_of_user) => {
         const result = await this.dbPool.query(
-            `SELECT policyportal.users.username, policyportal.articles.title, 
-                policyportal.articles.article, policyportal.articles.created_at
-                FROM policyportal.articles
-                INNER JOIN policyportal.users 
-                ON policyportal.articles.upload_by = policyportal.users.id
-                WHERE policyportal.users.id = $1 AND policyportal.articles.status = 'APPROVED'
-                ORDER BY policyportal.articles.created_at DESC`, [id_of_user]);
+            `SELECT 
+                policyportal.users.username, 
+                policyportal.articles.title, 
+                policyportal.articles.article, 
+                policyportal.articles.created_at
+            FROM policyportal.articles
+            INNER JOIN policyportal.users 
+            ON policyportal.articles.upload_by = policyportal.users.id
+            WHERE policyportal.users.id = $1 AND policyportal.articles.status = 'APPROVED'
+            ORDER BY policyportal.articles.created_at DESC`, [id_of_user]);
 
         if (result.rows.length > 0) {
             return result.rows;

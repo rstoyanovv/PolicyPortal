@@ -9,6 +9,7 @@ class ArticleController {
         this.router.delete('/delete-article', this.deleteArticle);
         this.router.delete('/delete-comment', this.deleteComment);
         this.router.get('/articles', this.fetchArticles);
+        this.router.get('/articles/:id', this.fetchSingleArticleById);
         this.router.get('/articles_by_user/:userId', this.fetchArticlesByUserId);
     }
 
@@ -56,6 +57,17 @@ class ArticleController {
     fetchArticles = async (req, res) => { 
         try {
             const result = await this.articleService.fetchArticles();
+            res.status(200).json({ result });
+        } catch (err) {
+            res.status(500).json({ message: err.message });
+        }
+    }
+
+    fetchSingleArticleById = async (req, res) => {
+        try {
+            const articleId = req.params.id;
+            console.log(articleId);
+            const result = await this.articleService.fetchSingleArticleById(articleId);
             res.status(200).json({ result });
         } catch (err) {
             res.status(500).json({ message: err.message });
