@@ -1,25 +1,10 @@
-import { useState } from "react";
 import SingleArticleInFeedScreen from "./SingleArticleInFeedScreen";
-import { useEffect } from "react";
-import axios from "axios";
+import { useArticles } from "../context/articleContext";
 
 import '../styles/articleFeedStyle.css';
 
 export default function ArticlesFeedScreen() {
-    const [articles, setArticles] = useState([]);
-
-    useEffect(() => {
-        const fetchArticles = async () => {
-            try {
-                const result = await axios.get(`/api/articles`);
-                const articlesData = Object.values(result.data.result);
-                setArticles(articlesData);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        fetchArticles();
-    }, []);
+    const articles = useArticles();
 
     return (
         <div>
