@@ -7,6 +7,7 @@ export function useArticles() {
     return useContext(ArticlesContext);
 }
 
+// 'Loading things' here is absolutely necessary!
 export function ArticlesProvider({ children }) {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);

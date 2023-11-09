@@ -1,26 +1,29 @@
 import { useParams } from "react-router-dom";
 import { useArticles } from "../context/articleContext";
+import '../styles/singleArticle.css';
+import editDateFormat from "../functions/editDate";
 
 export default function SingleArticleScreen() {
     const articles = useArticles();
     const { id } = useParams();
 
-    console.log(articles);
-
     const article = articles.find((article) => article.id == id);
+    const editedDate = editDateFormat(article.created_at);
 
     return (
-        <div className="article-screen">
-            <div class="grid grid-cols-2">
-                <div class="bg-gray-200 p-4">
-                    <h1>{ article.title }</h1>
+        <div className="bg-gray-200 article-screen">
+            <div class="grid grid-cols-2 header-container">
+                <div class="header-title">
+                    <h1> { article.title } </h1>
                 </div>
-                <div class="bg-gray-300 p-4">
-                    <h4>{ article.created_at }</h4>
+                <div class="header-created-date">
+                    <h4> Uploaded at { editedDate } </h4>
                 </div>
             </div>
-            <p>{ article.article }</p>
-            <p>{ article.username }</p>
+            <div className="article-container">
+                <p className="article"> { article.article } </p>
+                <p className="username-text"> The author is <span id="username"> { article.username } </span> </p>
+            </div>    
         </div>
     );
 }

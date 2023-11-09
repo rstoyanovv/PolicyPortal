@@ -1,0 +1,43 @@
+.header-container {
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.header-title {
+    padding-left: 5rem;
+    font-weight: bold;
+    font-size: larger;
+    color: #282626;
+}
+
+.header-created-date {
+    text-align: right;
+    margin-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 1.1rem;
+    font-weight:600;
+    font-size: large;
+    color: #282626;
+}
+
+.article-screen {
+    margin: 4rem 0;
+}
+ 
+.article {
+    margin-bottom: 2rem;
+}
+
+.article-container {
+    margin: 0 5rem;
+    padding-right: 18rem;
+}
+
+.username-text {
+    text-align: right;
+    font-style: italic;
+}
+
+#username {
+    font-weight: 500;
+}
