@@ -8,7 +8,7 @@ export default function ArticlesInnerRouter() {
         <ArticlesProvider>
             <Routes>
                 <Route path="/" element={<ArticlesFeedScreen />} />
-                <Route path=":id" element={<SingleArticleScreen />} />
+                <Route path="/:id" element={<SingleArticleScreen />} />
             </Routes>
         </ArticlesProvider>
     );

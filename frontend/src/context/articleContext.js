@@ -9,6 +9,7 @@ export function useArticles() {
 
 export function ArticlesProvider({ children }) {
     const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchArticles = async () => {
@@ -16,16 +17,19 @@ export function ArticlesProvider({ children }) {
                 const result = await axios.get(`/api/articles`);
                 const articlesData = Object.values(result.data.result);
                 setArticles(articlesData);
+                setLoading(false);
             } catch (err) {
                 console.error(err);
+                setLoading(false);
             }
         };
+
         fetchArticles();
     }, []);
 
     return (
         <ArticlesContext.Provider value={articles}>
-            {children}
+            {loading ? <div>Loading...</div> : children}
         </ArticlesContext.Provider>
     );
 }

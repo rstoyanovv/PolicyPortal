@@ -5,6 +5,8 @@ export default function SingleArticleScreen() {
     const articles = useArticles();
     const { id } = useParams();
 
+    console.log(articles);
+
     const article = articles.find((article) => article.id == id);
 
     return (

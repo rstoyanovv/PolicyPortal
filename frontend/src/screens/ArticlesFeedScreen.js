@@ -6,6 +6,8 @@ import '../styles/articleFeedStyle.css';
 export default function ArticlesFeedScreen() {
     const articles = useArticles();
 
+    console.log(articles);
+
     return (
         <div>
             <h1 className="self-center text-8x3 whitespace-nowrap font-bold heading-feed"> Last articles </h1>
