@@ -12,18 +12,21 @@ export default function SingleArticleScreen() {
 
     return (
         <div className="bg-gray-200 article-screen">
-            <div class="grid grid-cols-2 header-container">
-                <div class="header-title">
-                    <h1> { article.title } </h1>
+            <div class="grid grid-cols-8 header-container">
+                <div class="col-span-4 header-title">
+                    <h1> {article.title} </h1>
                 </div>
-                <div class="header-created-date">
-                    <h4> Uploaded at { editedDate } </h4>
+                <div className="col-span-2 username-space">
+                    <p className="username-text" style={{paddingTop: '1.2rem'}}> by <span id="username"> {article.username} </span> </p>
+                </div>
+                <div class="col-span-2 header-created-date">
+                    <h4> Uploaded at {editedDate} </h4>
                 </div>
             </div>
             <div className="article-container">
-                <p className="article"> { article.article } </p>
-                <p className="username-text"> The author is <span id="username"> { article.username } </span> </p>
-            </div>    
+                <p className="article"> {article.article} </p>
+
+            </div>
         </div>
     );
 }
