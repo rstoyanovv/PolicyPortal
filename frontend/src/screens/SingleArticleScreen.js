@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useArticles } from "../context/articleContext";
 import '../styles/singleArticle.css';
 import editDateFormat from "../functions/editDate";
+import image from '../assets/newspapers.jpg';
 
 export default function SingleArticleScreen() {
     const articles = useArticles();
@@ -12,18 +13,21 @@ export default function SingleArticleScreen() {
 
     return (
         <div className="bg-gray-200 article-screen">
+            <div className="header-image-section">
+                <img className="header-image" src={image} alt="header-political-picture"></img>
+            </div>
             <div class="grid grid-cols-8 header-container">
-                <div class="col-span-4 header-title">
+                <div class="font-sans col-span-4 header-title">
                     <h1> {article.title} </h1>
                 </div>
-                <div className="col-span-2 username-space">
-                    <p className="username-text" style={{paddingTop: '1.2rem'}}> by <span id="username"> {article.username} </span> </p>
+                <div className="font-sans col-span-2 username-space">
+                    <p className="username-text"> by <span id="username"> {article.username} </span> </p>
                 </div>
-                <div class="col-span-2 header-created-date">
+                <div class="font-sans col-span-2 header-created-date">
                     <h4> Uploaded at {editedDate} </h4>
                 </div>
             </div>
-            <div className="article-container">
+            <div className="font-sans article-container">
                 <p className="article"> {article.article} </p>
 
             </div>
