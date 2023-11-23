@@ -3,6 +3,17 @@
     padding: 1rem 0;
 }
 
+.new-article-heading {
+    font-weight: 800;
+    color: #1c2642;
+}
+
+.label-heading {
+    color: #1c2642;
+    font-size: 115%;
+    font-weight:500;
+}
+
 .input-form {
-    
+    margin: 1rem 0;
 }
