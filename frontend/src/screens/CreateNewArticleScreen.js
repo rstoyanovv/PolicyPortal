@@ -4,20 +4,20 @@ import ArticleForm from '../components/ArticleForm';
 import '../styles/createNewArticle.css';
 
 export default function CreateNewArticleScreen() {
-    const [isArticleSubmitted, setIsArticleSubmitted] = useState(false);
+    const [ArticleSubmitted, setArticleSubmitted] = useState(false);
 
     const handleSubmittion = () => {
-        setIsArticleSubmitted(true);
+        setArticleSubmitted(true);
     }
 
     return (
         <div className="create-new-article-container">
             {
-                isArticleSubmitted ? (
+                ArticleSubmitted ? (
                     <ArticleApprovalMessage />
                 ) : (
                     <ArticleForm onSubmit={handleSubmittion} />
-                )}
+            )}
         </div>
     );
 }
