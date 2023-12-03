@@ -56,4 +56,9 @@
 
 .comment-section {
     margin-left: 5rem;
+    margin-top: 5rem;
+}
+
+.heading-comment-section {
+    font-weight: 600;
 }
