@@ -3,6 +3,7 @@ import { useArticles } from "../context/articleContext";
 import '../styles/singleArticle.css';
 import editDateFormat from "../functions/editDate";
 import image from '../assets/newspapers.jpg';
+import SingleComment from "../components/SingleComment";
 
 export default function SingleArticleScreen() {
     const articles = useArticles();
@@ -68,6 +69,7 @@ export default function SingleArticleScreen() {
                 </form>
             </div>
 
+            <SingleComment />
 
         </div>
     );
