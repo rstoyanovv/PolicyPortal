@@ -1,7 +1,7 @@
 export default function CommentInput() {
     return (
     <div class="comment-section mx-auto text-center">
-        <h2 className="heading-comment-section"> Share your opinion on this topic below</h2>
+        <h2 className="font-sans heading-comment-section"> Share your opinion on this topic below</h2>
         <form className="w-2/5 mx-auto">
             <div class="mb-4 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-400 dark:border-gray-300">
                 <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-400">
