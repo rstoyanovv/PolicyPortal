@@ -1,3 +1,4 @@
-.register-form{
+.register-form,
+.login-form {
     background-color:rgb(41, 81, 116)
 }
