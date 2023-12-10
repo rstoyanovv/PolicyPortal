@@ -1,4 +1,5 @@
 export default function InformativeLoginScreen() {
+    // for now 
     return (
         <div className="informative-container mt-8 mb-8" style={{textAlign: 'center'}}>
             <h2>You are not logged in</h2>
